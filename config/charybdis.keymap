@@ -232,7 +232,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,
+                // 编码器1：上下滚动,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -261,7 +261,7 @@
 &none  &none  &mt F7 NUMBER_7  &mt F8 NUMBER_8  &mt F9 NUMBER_9  &kp F10    &kp DOUBLE_QUOTES  &kp N7        &kp N8  &kp N9  &kp FSLH  &none
 &none  &none  &mt F4 NUMBER_4  &mt F5 NUMBER_5  &mt F6 NUMBER_6  &kp F11    &kp MINUS          &kp N4        &kp N5  &kp N6  &kp AT    &kp HASH
 &none  &none  &mt F1 NUMBER_1  &mt F2 NUMBER_2  &mt F3 NUMBER_3  &kp F12    &kp DOT            &kp NUMBER_1  &kp N2  &kp N3  &none     &none
-                               &kp BACKSPACE    &trans           &kp N0     &trans             &kp N0
+                               &kp BACKSPACE    &to 0            &kp N0     &trans             &kp N0
             >;
         };
 
