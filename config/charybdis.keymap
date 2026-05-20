@@ -15,9 +15,9 @@
     quick-tap-ms = <150>;
 };
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+&mmv_input_listener { input-processors = <&zip_xy_scaler 1 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; };
 
 &msc {
     acceleration-exponent = <0>;      // 0
@@ -229,13 +229,6 @@
 &kp LCTRL    &kp Z  &kp X  &kp C          &kp V  &kp B        &kp N               &kp M  &kp COMMA  &kp PERIOD  &kp SLASH      &kp ESCAPE
                            &kp BACKSPACE  &mo 4  &kp SPACE    &mt LEFT_WIN ENTER  &mo 1
             >;
-
-            sensor-bindings =
-                <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,
-                <&scroll_horizontal_encoder>;
-
-            // 编码器2：左右滚动
         };
 
         symbol_eng {
@@ -272,6 +265,12 @@
 &kp LC(LA(DELETE))  &ctrl_for_vrm Z  &ctrl_for_vrm X     &kp LCTRL        &add_cell_below_jupyter  &ctrl_for_vrm ENTER    &none          &kp LC(BACKSPACE)  &shift_ctrl_vrm K  &none      &none          &none
                                                          &none            &none                    &none                  &kp LCTRL      &kp TAB
             >;
+            sensor-bindings =
+                <&scroll_vertical_encoder>,
+                // 编码器1：上下滚动,,,,
+                <&scroll_horizontal_encoder>;
+
+            // 编码器2：左右滚动
         };
 
         mouse_layer {
