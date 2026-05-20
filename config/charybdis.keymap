@@ -214,12 +214,12 @@
         compatible = "zmk,combos";
 
         to_sys_right {
-            bindings = <&to 7>;
+            bindings = <&to 0>;
             key-positions = <11 23>;
         };
 
         to_sys_left {
-            bindings = <&to 7>;
+            bindings = <&to 0>;
             key-positions = <0 12>;
         };
 
@@ -235,7 +235,7 @@
         home_layer {
             bindings = <
 &kp TAB      &kp Q                 &kp W  &kp E          &kp R  &kp T        &kp Y               &kp U  &kp I      &kp O       &kp P          &kp LEFT_BRACKET
-&shift_caps  &trackball_snipe 7 A  &kp S  &kp D          &kp F  &kp G        &kp H               &kp J  &kp K      &kp L       &kp SEMICOLON  &kp SQT
+&shift_caps  &trackball_snipe 5 A  &kp S  &kp D          &kp F  &kp G        &kp H               &kp J  &kp K      &kp L       &kp SEMICOLON  &kp SQT
 &kp LCTRL    &kp Z                 &kp X  &kp C          &kp V  &kp B        &kp N               &kp M  &kp COMMA  &kp PERIOD  &kp SLASH      &kp ESCAPE
                                           &kp BACKSPACE  &mo 4  &kp SPACE    &mt LEFT_WIN ENTER  &mo 1
             >;
@@ -246,7 +246,7 @@
 &kp DOLLAR  &kp MINUS  &kp LESS_THAN      &kp GREATER_THAN  &kp EXCLAMATION  &kp PERCENT      &kp AMPERSAND  &kp COLON  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE  &kp CAPS
 &kp GRAVE   &kp PLUS   &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp EQUAL        &kp SEMICOLON    &kp PIPE       &kp DOT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION    &kp DELETE
 &kp LCTRL   &kp CARET  &kp SLASH          &kp STAR          &kp BACKSLASH    &kp HASH         &kp GRAVE      &kp COMMA  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN     &kp TILDE
-                                          &kp BACKSPACE     &mo 2            &mo 8            &none          &none
+                                          &kp BACKSPACE     &mo 2            &kp DELETE       &none          &none
             >;
         };
 
@@ -270,15 +270,15 @@
 
         navigation {
             bindings = <
-&kp LA(LEFT_SHIFT)  &kp LEFT_ALT     &shift_ctrl_button  &delete_jupyter  &add_cell_above_jupyter  &ctrl_for_vrm F        &kp PG_UP      &kp HOME           &kp UP             &kp END    &kp DEL        &kp INS
-&kp LS(ENTER)       &ctrl_for_vrm A  &kp LEFT_SHIFT      &ctrl_for_vrm C  &ctrl_for_vrm V          &clear_cell_jupyter    &kp PAGE_DOWN  &kp LEFT           &kp DOWN           &kp RIGHT  &kp BACKSPACE  &none
-&kp LC(LA(DELETE))  &ctrl_for_vrm Z  &ctrl_for_vrm X     &kp LCTRL        &add_cell_below_jupyter  &ctrl_for_vrm ENTER    &none          &kp LC(BACKSPACE)  &shift_ctrl_vrm K  &none      &none          &none
-                                                         &none            &none                    &none                  &kp LCTRL      &kp TAB
+&kp LA(LEFT_SHIFT)    &kp LEFT_ALT     &shift_ctrl_button  &delete_jupyter  &add_cell_above_jupyter  &ctrl_for_vrm F        &kp PG_UP      &kp HOME           &kp UP             &kp END    &kp DEL        &kp INS
+&shift_for_vrm ENTER  &ctrl_for_vrm A  &kp LEFT_SHIFT      &ctrl_for_vrm C  &ctrl_for_vrm V          &clear_cell_jupyter    &kp PAGE_DOWN  &kp LEFT           &kp DOWN           &kp RIGHT  &kp BACKSPACE  &none
+&kp LC(LA(DELETE))    &ctrl_for_vrm Z  &ctrl_for_vrm X     &kp LCTRL        &add_cell_below_jupyter  &ctrl_for_vrm ENTER    &none          &kp LC(BACKSPACE)  &shift_ctrl_vrm K  &none      &none          &none
+                                                           &none            &none                    &none                  &kp LCTRL      &kp TAB
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,
+                // 编码器1：上下滚动,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -299,15 +299,6 @@
 &trans       &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4      &trans  &trans  &trans  &trans  &trans  &trans
 &trans       &trans         &trans         &trans         &trans         &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &trans  &trans
                                            &trans         &to 0          &trans            &trans  &to 0
-            >;
-        };
-
-        scroll {
-            bindings = <
-&trans  &trans  &trans  &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &ctrl_for_vrm C  &ctrl_for_vrm V  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans  &trans  &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
-                        &trans           &trans           &trans    &trans  &trans
             >;
         };
 
