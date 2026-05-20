@@ -204,12 +204,12 @@
         compatible = "zmk,combos";
 
         to_sys_right {
-            bindings = <&to 6>;
+            bindings = <&to 7>;
             key-positions = <11 23>;
         };
 
         to_sys_left {
-            bindings = <&to 6>;
+            bindings = <&to 7>;
             key-positions = <0 12>;
         };
 
@@ -236,7 +236,7 @@
 &kp DOLLAR  &kp MINUS  &kp LESS_THAN      &kp GREATER_THAN  &kp EXCLAMATION  &kp PERCENT      &kp AMPERSAND  &kp COLON  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE  &kp CAPS
 &kp GRAVE   &kp PLUS   &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp EQUAL        &kp SEMICOLON    &kp PIPE       &kp DOT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION    &kp DELETE
 &kp LCTRL   &kp CARET  &kp SLASH          &kp STAR          &kp BACKSLASH    &kp HASH         &kp GRAVE      &kp COMMA  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN     &kp TILDE
-                                          &kp BACKSPACE     &mo 2            &mo 5            &none          &none
+                                          &kp BACKSPACE     &mo 2            &mo 8            &none          &none
             >;
         };
 
@@ -265,9 +265,10 @@
 &kp LC(LA(DELETE))  &ctrl_for_vrm Z  &ctrl_for_vrm X     &kp LCTRL        &add_cell_below_jupyter  &ctrl_for_vrm ENTER    &none          &kp LC(BACKSPACE)  &shift_ctrl_vrm K  &none      &none          &none
                                                          &none            &none                    &none                  &kp LCTRL      &kp TAB
             >;
+
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,
+                // 编码器1：上下滚动,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -275,9 +276,9 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans     &trans     &trans     &trans  &trans
                         &trans  &trans  &trans    &trans  &trans
             >;
         };
@@ -288,6 +289,15 @@
 &trans       &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4      &trans  &trans  &trans  &trans  &trans  &trans
 &trans       &trans         &trans         &trans         &trans         &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &trans  &trans
                                            &trans         &to 0          &trans            &trans  &to 0
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
             >;
         };
 
