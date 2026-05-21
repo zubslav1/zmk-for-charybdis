@@ -278,7 +278,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -286,10 +286,10 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &ctrl_for_vrm C  &ctrl_for_vrm V  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans  &trans  &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
-                        &trans           &none            &trans    &trans  &trans
+&trans  &trans  &trans          &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &kp LEFT_SHIFT  &ctrl_for_vrm C  &ctrl_for_vrm V  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans          &trans           &trans           &trans    &trans  &trans     &trans     &trans     &trans  &trans
+                                &trans           &none            &trans    &trans  &trans
             >;
         };
 
