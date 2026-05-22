@@ -214,12 +214,12 @@
         compatible = "zmk,combos";
 
         to_sys_right {
-            bindings = <&to 0>;
+            bindings = <&to 6>;
             key-positions = <11 23>;
         };
 
         to_sys_left {
-            bindings = <&to 0>;
+            bindings = <&to 6>;
             key-positions = <0 12>;
         };
 
@@ -278,7 +278,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
