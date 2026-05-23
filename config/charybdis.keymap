@@ -57,6 +57,8 @@
         label = "SHIFT_CAPS";
         #binding-cells = <0>;
         bindings = <&capital_letter LEFT_SHIFT>, <&capital_word>;
+
+        tapping-term-ms = <300>;
     };
 
     capital_letter: capital_letter {
@@ -348,7 +350,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
