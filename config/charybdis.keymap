@@ -210,6 +210,17 @@
 
             label = "SHIFT_CTRL_VRM";
         };
+
+        only_once: only_once {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_release>;
+
+            label = "ONLY_ONCE";
+        };
     };
 
     combos {
@@ -315,19 +326,19 @@
 
         symbol_eng {
             bindings = <
-&kp DOLLAR  &kp MINUS  &kp LESS_THAN      &kp GREATER_THAN  &kp EXCLAMATION  &kp PERCENT      &kp AMPERSAND  &kp COLON  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp UNDERSCORE  &kp CAPS
-&kp GRAVE   &kp PLUS   &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp EQUAL        &kp SEMICOLON    &kp PIPE       &kp DOT    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp QUESTION    &kp DELETE
-&kp LCTRL   &kp CARET  &kp SLASH          &kp STAR          &kp BACKSLASH    &kp HASH         &kp GRAVE      &kp COMMA  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AT_SIGN     &kp TILDE
-                                          &kp BACKSPACE     &mo 2            &kp DELETE       &none          &none
+&only_once DOLLAR  &only_once MINUS  &only_once LESS_THAN      &only_once GREATER_THAN  &only_once EXCLAMATION  &only_once PERCENT      &only_once AMPERSAND  &only_once COLON  &only_once LEFT_BRACKET      &only_once RIGHT_BRACKET      &only_once UNDERSCORE  &kp CAPS
+&kp LEFT_SHIFT     &only_once PLUS   &only_once DOUBLE_QUOTES  &only_once SINGLE_QUOTE  &only_once EQUAL        &only_once SEMICOLON    &only_once PIPE       &only_once DOT    &only_once LEFT_PARENTHESIS  &only_once RIGHT_PARENTHESIS  &only_once QUESTION    &kp DELETE
+&only_once LCTRL   &only_once CARET  &only_once SLASH          &only_once STAR          &only_once BACKSLASH    &kp HASH                &only_once GRAVE      &only_once COMMA  &only_once LEFT_BRACE        &only_once RIGHT_BRACE        &only_once AT_SIGN     &only_once TILDE
+                                                               &kp BACKSPACE            &mo 2                   &kp DELETE              &none                 &none
             >;
         };
 
         symbol_rus {
             bindings = <
-&kp ESCAPE      &kp MINUS  &none          &none     &kp EXCLAMATION  &kp PERCENT    &none  &kp CARET     &none                 &none                  &kp UNDERSCORE  &kp CAPS
-&kp LEFT_SHIFT  &kp PLUS   &kp AT_SIGN    &none     &kp EQUAL        &kp DOLLAR     &none  &kp SLASH     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AMPERSAND   &kp DELETE
-&kp LCTRL       &none      &kp BACKSLASH  &kp STAR  &kp PIPE         &none          &none  &kp QUESTION  &none                 &none                  &none           &none
-                                          &none     &none            &none          &none  &none
+&kp ESCAPE      &kp MINUS        &none                 &none            &only_once EXCLAMATION  &only_once PERCENT    &none  &only_once CARET     &none                        &none                         &only_once UNDERSCORE  &kp CAPS
+&kp LEFT_SHIFT  &only_once PLUS  &only_once AT_SIGN    &none            &only_once EQUAL        &only_once DOLLAR     &none  &only_once SLASH     &only_once LEFT_PARENTHESIS  &only_once RIGHT_PARENTHESIS  &only_once AMPERSAND   &kp DELETE
+&kp LCTRL       &none            &only_once BACKSLASH  &only_once STAR  &only_once PIPE         &none                 &none  &only_once QUESTION  &none                        &none                         &none                  &none
+                                                       &none            &none                   &none                 &none  &none
             >;
         };
 
@@ -350,7 +361,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
