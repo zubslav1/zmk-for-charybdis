@@ -88,6 +88,15 @@
         flavor = "tap-preferred";
     };
 
+    hold: hold {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOLD";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        tapping-term-ms = <180>;
+    };
+
     behaviors {
     };
 
@@ -210,17 +219,6 @@
 
             label = "SHIFT_CTRL_VRM";
         };
-
-        only_once: only_once {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_release>;
-
-            label = "ONLY_ONCE";
-        };
     };
 
     combos {
@@ -326,19 +324,19 @@
 
         symbol_eng {
             bindings = <
-&only_once DOLLAR  &only_once MINUS  &only_once LESS_THAN      &only_once GREATER_THAN  &only_once EXCLAMATION  &only_once PERCENT      &only_once AMPERSAND  &only_once COLON  &only_once LEFT_BRACKET      &only_once RIGHT_BRACKET      &only_once UNDERSCORE  &kp CAPS
-&kp LEFT_SHIFT     &only_once PLUS   &only_once DOUBLE_QUOTES  &only_once SINGLE_QUOTE  &only_once EQUAL        &only_once SEMICOLON    &only_once PIPE       &only_once DOT    &only_once LEFT_PARENTHESIS  &only_once RIGHT_PARENTHESIS  &only_once QUESTION    &kp DELETE
-&only_once LCTRL   &only_once CARET  &only_once SLASH          &only_once STAR          &only_once BACKSLASH    &kp HASH                &only_once GRAVE      &only_once COMMA  &only_once LEFT_BRACE        &only_once RIGHT_BRACE        &only_once AT_SIGN     &only_once TILDE
-                                                               &kp BACKSPACE            &mo 2                   &kp DELETE              &none                 &none
+&hold DOLLAR LS(NUMBER_4)  &kp MINUS                 &hold LESS_THAN LS(COMMA)    &hold GREATER_THAN LS(PERIOD)  &hold EXCLAMATION LS(NUMBER_1)  &hold PERCENT LS(N5)       &hold AMPERSAND LS(N7)           &hold COLON LS(SEMICOLON)  &kp LEFT_BRACKET                   &kp RIGHT_BRACKET                    &hold UNDERSCORE LS(MINUS)  &kp CAPS
+&kp LEFT_SHIFT             &hold PLUS LS(EQUAL)      &hold DOUBLE_QUOTES LS(SQT)  &kp SINGLE_QUOTE               &kp EQUAL                       &kp SEMICOLON              &hold PIPE LS(NON_US_BACKSLASH)  &kp DOT                    &hold LEFT_PARENTHESIS LS(N9)      &hold RIGHT_PARENTHESIS LS(N0)       &hold QUESTION LS(SLASH)    &kp DELETE
+&kp LCTRL                  &hold CARET LS(NUMBER_6)  &kp SLASH                    &hold STAR LS(N8)              &kp BACKSLASH                   &hold HASH LS(NUMBER_3)    &kp GRAVE                        &kp COMMA                  &hold LEFT_BRACE LS(LEFT_BRACKET)  &hold RIGHT_BRACE LS(RIGHT_BRACKET)  &hold AT_SIGN LS(NUMBER_2)  &hold TILDE LS(GRAVE)
+                                                                                  &kp BACKSPACE                  &mo 2                           &kp DELETE                 &none                            &none
             >;
         };
 
         symbol_rus {
             bindings = <
-&kp ESCAPE      &kp MINUS        &none                 &none            &only_once EXCLAMATION  &only_once PERCENT    &none  &only_once CARET     &none                        &none                         &only_once UNDERSCORE  &kp CAPS
-&kp LEFT_SHIFT  &only_once PLUS  &only_once AT_SIGN    &none            &only_once EQUAL        &only_once DOLLAR     &none  &only_once SLASH     &only_once LEFT_PARENTHESIS  &only_once RIGHT_PARENTHESIS  &only_once AMPERSAND   &kp DELETE
-&kp LCTRL       &none            &only_once BACKSLASH  &only_once STAR  &only_once PIPE         &none                 &none  &only_once QUESTION  &none                        &none                         &none                  &none
-                                                       &none            &none                   &none                 &none  &none
+&kp ESCAPE      &hold MINUS MINUS  &none                      &none            &hold EXCLAMATION EXCLAMATION  &hold PERCENT PERCENT    &none  &hold CARET CARET        &none                                    &none                                      &hold UNDERSCORE UNDERSCORE  &kp CAPS
+&kp LEFT_SHIFT  &hold PLUS PLUS    &hold AT_SIGN AT_SIGN      &none            &hold EQUAL EQUAL              &hold DOLLAR DOLLAR      &none  &hold SLASH SLASH        &hold LEFT_PARENTHESIS LEFT_PARENTHESIS  &hold RIGHT_PARENTHESIS RIGHT_PARENTHESIS  &hold AMPERSAND AMPERSAND    &kp DELETE
+&kp LCTRL       &none              &hold BACKSLASH BACKSLASH  &hold STAR STAR  &hold PIPE PIPE                &none                    &none  &hold QUESTION QUESTION  &none                                    &none                                      &none                        &none
+                                                              &none            &none                          &none                    &none  &none
             >;
         };
 
@@ -361,7 +359,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
