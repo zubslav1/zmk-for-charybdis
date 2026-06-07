@@ -91,7 +91,7 @@
     hold: hold {
         compatible = "zmk,behavior-hold-tap";
         label = "HOLD";
-        bindings = <&kp>, <&kp>;
+        bindings = <&hold_shift>, <&kp>;
 
         #binding-cells = <2>;
         tapping-term-ms = <180>;
@@ -219,6 +219,19 @@
                 <&kp LEFT_SHIFT &kp LCTRL>;
 
             label = "SHIFT_CTRL_VRM";
+        };
+
+        hold_shift: hold_shift {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_release>;
+
+            label = "HOLD_SHIFT";
         };
     };
 
@@ -360,7 +373,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
